@@ -1,0 +1,26 @@
+[package]
+name = "ryutan"
+version = "0.1.0"
+edition = "2021"
+authors = ["David George Williams <david@cynthiasystems.com>"]
+description = "A Quantum Reservoir Computing framework in Rust"
+license = "MIT"
+repository = "https://github.com/davidgeorgewilliams/Ryutan"
+
+[dependencies]
+num-complex = "0.4"
+ndarray = "0.15"
+rand = "0.8"
+# cudarc = { version = "0.9", optional = true }
+
+[dev-dependencies]
+criterion = "0.4"
+
+[[bench]]
+name = "quantum_ops_benchmark"
+harness = false
+
+[features]
+default = ["cpu"]
+cpu = []
+# gpu = ["cudarc"]
