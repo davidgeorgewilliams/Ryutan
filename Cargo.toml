@@ -12,6 +12,7 @@ num-complex = "0.4"
 ndarray = "0.15"
 rand = "0.8"
 # cudarc = { version = "0.9", optional = true }
+ndarray-linalg = { version = "0.16", features = ["openblas-static"] }
 
 [dev-dependencies]
 criterion = "0.4"

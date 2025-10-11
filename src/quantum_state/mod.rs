@@ -158,18 +158,6 @@ impl MixedState {
     }
 }
 
-/// Tests for the quantum state implementations.
-///
-/// These tests demonstrate creating and using both pure and mixed states:
-/// * The pure state test creates a state |ψ⟩ = (1/√2)|0⟩ + (i/√2)|1⟩, which is an equal superposition of |0⟩ and |1⟩ with a relative phase.
-/// * The mixed state test creates a completely mixed single-qubit state, represented by the density matrix ρ = (1/2)|0⟩⟨0| + (1/2)|1⟩⟨1|.
-///
-/// Both tests verify the correct number of qubits and probabilities.
-///
-/// # Additional Reading for Quantum Computing Implementations
-///
-/// * "Quantum Computing: Where Do We Stand?" by Matthias Troyer (arXiv:1801.04307)
-/// * "Quantum Algorithm Implementations for Beginners" by Coles et al. (arXiv:1804.03719)
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -181,8 +169,8 @@ mod tests {
             Complex64::new(0.0, 1.0 / 2.0_f64.sqrt()),
         ]);
         assert_eq!(state.num_qubits(), 1);
-        assert_eq!(state.probability(0), 0.5);
-        assert_eq!(state.probability(1), 0.5);
+        assert!((state.probability(0) - 0.5).abs() < 1e-10);
+        assert!((state.probability(1) - 0.5).abs() < 1e-10);
     }
 
     #[test]
